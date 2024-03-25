@@ -29,6 +29,7 @@
 		543A2EF32BB1B9FF002827FD /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543A2EF22BB1B9FF002827FD /* GameOverScene.swift */; };
 		543A2EF52BB1BA02002827FD /* StoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543A2EF42BB1BA02002827FD /* StoryScene.swift */; };
 		543A2EF72BB1BA07002827FD /* StoryScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 543A2EF62BB1BA07002827FD /* StoryScene.sks */; };
+		543A2EF92BB1BB5D002827FD /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543A2EF82BB1BB5D002827FD /* MyScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		543A2EF22BB1B9FF002827FD /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		543A2EF42BB1BA02002827FD /* StoryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryScene.swift; sourceTree = "<group>"; };
 		543A2EF62BB1BA07002827FD /* StoryScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StoryScene.sks; sourceTree = "<group>"; };
+		543A2EF82BB1BB5D002827FD /* MyScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,11 +132,12 @@
 				543A2ED82BB1B920002827FD /* game-over-arcade-6435.mp3 */,
 				543A2EDA2BB1B927002827FD /* Loop_music.mp3 */,
 				543A2EDE2BB1B93F002827FD /* MyScene.sks */,
+				543A2EF82BB1BB5D002827FD /* MyScene.swift */,
+				543A2EEA2BB1B9E1002827FD /* MainScene.swift */,
+				543A2EE82BB1B9DD002827FD /* MainScene.sks */,
 				543A2EE22BB1B9CB002827FD /* Hero.sks */,
 				543A2EE42BB1B9D5002827FD /* enemy.sks */,
 				543A2EE62BB1B9D9002827FD /* knight.sks */,
-				543A2EE82BB1B9DD002827FD /* MainScene.sks */,
-				543A2EEA2BB1B9E1002827FD /* MainScene.swift */,
 				543A2EEC2BB1B9E8002827FD /* OnboardingScene.sks */,
 				543A2EEE2BB1B9EE002827FD /* OnboardingScene.swift */,
 				543A2EDC2BB1B934002827FD /* Assets.xcassets */,
@@ -318,6 +321,7 @@
 				543A2EF52BB1BA02002827FD /* StoryScene.swift in Sources */,
 				543A2EEF2BB1B9EE002827FD /* OnboardingScene.swift in Sources */,
 				543A2E812BAC7853002827FD /* ContentView.swift in Sources */,
+				543A2EF92BB1BB5D002827FD /* MyScene.swift in Sources */,
 				543A2E7F2BAC7853002827FD /* GameAppleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
