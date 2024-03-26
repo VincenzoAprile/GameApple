@@ -41,7 +41,7 @@ class MyScene : SKScene {
     
     func createBackgroundLayers() {
         for i in 1 ... 3 {
-            let backgroundTexture = SKTexture(imageNamed: "background_layer_\(i)")
+            let backgroundTexture = SKTexture(imageNamed: "Forest_\(i)")
             
             let background1 = SKSpriteNode(texture: backgroundTexture)
             let background2 = SKSpriteNode(texture: backgroundTexture)
@@ -65,7 +65,7 @@ class MyScene : SKScene {
     
     func createGround() {
         for i in 0 ... 5 {
-            let groundTexture = SKTexture(imageNamed: "Oak Asset N°2")
+            let groundTexture = SKTexture(imageNamed: "Tile_02")
             
             let ground = SKSpriteNode(texture: groundTexture)
             ground.name = "ground"
@@ -99,7 +99,7 @@ class MyScene : SKScene {
     func createObstacle() {
         let spawnProbability = Int.random(in: 1..<101)
         if spawnProbability <= 33 {
-            let obstacleTexture = SKTexture(imageNamed: "rock_1")
+            let obstacleTexture = SKTexture(imageNamed: "Rock_1")
             let obstacle = SKSpriteNode(texture: obstacleTexture)
             
             obstacle.name = "rock"
@@ -121,11 +121,36 @@ class MyScene : SKScene {
 
             obstacle.run(moveLeft)
         }
+        else if spawnProbability <= 40{
+            
+            let obstacleTexture = SKTexture(imageNamed: "Crate_1")
+            let obstacle = SKSpriteNode(texture: obstacleTexture)
+            
+            obstacle.name = "crate"
+            obstacle.zPosition = 1
+            obstacle.size = CGSize(width: 60, height: 33)
+            
+            obstacle.position = CGPoint(x: Double(608), y: -170)
+            
+            obstacle.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 5, height: 33))
+            obstacle.physicsBody?.affectedByGravity = true
+            obstacle.physicsBody?.allowsRotation = false
+            obstacle.physicsBody?.categoryBitMask = PhysicsCategory.enemy
+            obstacle.physicsBody?.contactTestBitMask = PhysicsCategory.player
+            obstacle.physicsBody?.collisionBitMask = PhysicsCategory.ground
+            
+            addChild(obstacle)
+            
+            let moveLeft = SKAction.moveBy(x: -928, y: 0, duration: CGFloat(2.5))
+
+            obstacle.run(moveLeft)
+            
+        }
         else if spawnProbability <= 50 {
-            let collectibleTexture = SKTexture(imageNamed: "acorn")
+            let collectibleTexture = SKTexture(imageNamed: "coin")
             let collectible = SKSpriteNode(texture: collectibleTexture)
             
-            collectible.name = "acorn"
+            collectible.name = "coin"
             collectible.zPosition = 1
             collectible.size = CGSize(width: 32, height: 32)
             
@@ -218,6 +243,7 @@ class MyScene : SKScene {
         let xConstraint = SKConstraint.positionX(xRange)
         hero.constraints = [xConstraint]
         scoreLabel = (self.childNode(withName: "//scoreLabel") as! SKLabelNode)
+
         /* allows the hero and enemy to animate when it's in the GameScene */
         hero.isPaused = false
         enemy.isPaused = false
@@ -350,6 +376,11 @@ extension MyScene : SKPhysicsContactDelegate {
             gameOver()
         }
         
+        if let node = firstBody.node, node.name == "crate" && secondBody.node?.name == "hero" {
+            node.removeFromParent()
+            gameOver()
+        }
+        
         if let node = firstBody.node, node.name == "eyebat" && secondBody.node?.name == "hero" && !slide {
             node.removeFromParent()
             gameOver()
@@ -359,10 +390,10 @@ extension MyScene : SKPhysicsContactDelegate {
             node.removeFromParent()
         }
         
-        if let node = firstBody.node, node.name == "acorn" && secondBody.node?.name == "hero" {
+        if let node = firstBody.node, node.name == "coin" && secondBody.node?.name == "hero" {
             node.removeFromParent()
             MyScene.score += 100
-            let gainAcronSound = SKAction.playSoundFileNamed("gain-acron", waitForCompletion: false)
+            let gainAcronSound = SKAction.playSoundFileNamed("gain-coin", waitForCompletion: false)
             run(gainAcronSound)
         }
         

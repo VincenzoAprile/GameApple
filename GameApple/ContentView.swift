@@ -6,19 +6,28 @@
 //
 
 import SwiftUI
+import SpriteKit
 
+// A sample SwiftUI creating a GameScene and sizing it
+// at 300x400 points
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+    
+    @AppStorage("onboarding") var onboarding = true
+    
+    var scene : SKScene {
+        if onboarding {
+            onboarding = false
+            return SKScene(fileNamed: "OnboardingScene")!///////////jdin
         }
-        .padding()
+        else {
+            return SKScene(fileNamed: "MainScene")!
+        }
     }
-}
 
-#Preview {
-    ContentView()
+    var body: some View {
+        SpriteView(scene: scene)
+            //.scaledToFill()
+            //.frame(width: 300, height: 400)
+            .ignoresSafeArea()
+    }
 }
