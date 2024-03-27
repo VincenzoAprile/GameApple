@@ -147,7 +147,7 @@ class MyScene : SKScene {
             
         }
         else if spawnProbability <= 50 {
-            let collectibleTexture = SKTexture(imageNamed: "coin")
+            let collectibleTexture = SKTexture(imageNamed: "Coin")
             let collectible = SKSpriteNode(texture: collectibleTexture)
             
             collectible.name = "coin"
